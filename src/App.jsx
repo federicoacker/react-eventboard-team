@@ -1,7 +1,6 @@
 
 import EventList from './components/EventList.jsx';
 import events from './data/events.js';
-import './App.css';
 import { useState } from 'react';
 
 function App() {
