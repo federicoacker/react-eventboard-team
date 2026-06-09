@@ -1,5 +1,6 @@
 
-import EventList from './components/EventList';
+import EventList from './components/EventList.jsx';
+import events from './data/events.js';
 import './App.css';
 import { useState } from 'react';
 
@@ -9,6 +10,11 @@ function App() {
   const handleChangeCategory = (event) => {
     setCategory(event.target.value)
   }
+
+  const filteredEvents = events.filter(event => {
+    return category === "tutti" ? true : event.category === category;
+  });
+
   return (
     <div className="app">
       <header className="app-header">
@@ -21,16 +27,16 @@ function App() {
           id="filtra-per-categoria"
           value={category}
           onChange={handleChangeCategory}>
-          <option value="Tutti">Tutti</option>
-          <option value="Conferenze">Conferenze</option>
-          <option value="Workshop">Workshop</option>
-          <option value="Meetup">Meetup</option>
+          <option value="tutti">Tutti</option>
+          <option value="conferenze">Conferenze</option>
+          <option value="workshop">Workshop</option>
+          <option value="meetup">Meetup</option>
         </select>
       </form>
       <p>Categoria Selezionata:{category}</p>
 
       <main className="app-main">
-        <EventList />
+        <EventList events={filteredEvents} />
       </main>
     </div>
   );
