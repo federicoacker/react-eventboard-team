@@ -23,6 +23,7 @@ function App() {
   const filteredEvents = events.filter(event => {
     return category === "tutti" ? true : event.category === category;
   });
+
  const count = filteredEvents.length;
   if(order === "asc"){
     filteredEvents.sort((a,b) => {
@@ -51,7 +52,6 @@ function App() {
     })
   }
 
-
   return (
     <div className="app">
       <header className="app-header">
@@ -72,8 +72,6 @@ function App() {
         </select>
       </form>
       <button onClick={handleChangeOrder}>Cambia Ordine {order === "asc" ? "Ascendente" : "Discendente"}</button>
-      <p>Categoria Selezionata:{category}</p>
-
       <main className="app-main">
         <EventList events={filteredEvents} />
       </main>
