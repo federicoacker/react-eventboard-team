@@ -1,7 +1,7 @@
 import { useState } from "react";
 import EventList from './components/EventList.jsx';
 import events from './data/events.js';
-import { useState } from 'react';
+
 
 function App() {
 
