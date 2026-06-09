@@ -14,7 +14,7 @@ function App() {
   const filteredEvents = events.filter(event => {
     return category === "tutti" ? true : event.category === category;
   });
- const count = filteredEvents.length;
+  const count = filteredEvents.length;
 
   return (
     <div className="app">
@@ -35,7 +35,6 @@ function App() {
           <option value="meetup">Meetup</option>
         </select>
       </form>
-      <p>Categoria Selezionata:{category}</p>
 
       <main className="app-main">
         <EventList events={filteredEvents} />
